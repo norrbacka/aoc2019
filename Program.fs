@@ -4,5 +4,6 @@ open System
 
 [<EntryPoint>]
 let main argv =
-    let x = Day1.part1()
+    let d11 = Day1.part1()
+    let d12 = Day1.part2()
     0 // return an integer exit code

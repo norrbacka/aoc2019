@@ -7,6 +7,18 @@
         |> Array.toList
         |> List.map double
 
+    let calcFuel (f : double) =
+        System.Math.Floor(f / 3.0)-2.0
+
     let part1 () =
         numbers
-        |> List.sumBy (fun m -> System.Math.Floor(m / 3.0)-2.0)
+        |> List.sumBy (fun f -> calcFuel f)
+
+    let rec calculateTotalFuel m : double =
+        match calcFuel m with
+            | m when m <= 0.0 -> 0.0
+            | m -> m + calculateTotalFuel m
+
+    let part2 () =
+        numbers
+        |> List.sumBy calculateTotalFuel
